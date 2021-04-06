@@ -1,8 +1,8 @@
-Reservation_ID		INT	PK
-Item_ID 		INT
-Customer_ID		INT
+Reservation_ID	    INT	PK
+Item_ID 		    INT
+Customer_ID		    INT
 Reservation_Date	TIMESTAMP
-End_Date		DATE
-Start_Time		TIME
-End_Time		TIME
-Employee_ID		INT
+End_Date		    DATE
+Start_Time		    TIME
+End_Time		    TIME
+Employee_ID		    INT
