@@ -7,38 +7,32 @@ defFont = ("Arial", "22")                                               #Frequen
 root = Tk()
 root.minsize(640,480)
 root.maxsize(1280,1024)                                                 #Maximum size not explicitly needed
+root.title("Reservations Manager v.A")
+variable = StringVar()
 
-#module 1 - Title
-title = Label(text="Reservation System Manager v.A", font=(defFont))    #specs for said string
-title.grid(row=0,column=1,sticky="w")                                   #positional arguments; "w" means west; NSEW and can use NW & SE
+#module 1 - First Name Entry
+FN = Label(text="First Name:" + Vs, font=(defFont)).grid(row=2, column=0, sticky="w")
 
-#module 2 - First Name Entry
-FN = Label(text="First Name:" + Vs, font=(defFont))                     #~: Sets up the actual text
-FN.grid(row=2, column=1, sticky="w")                                    #~~: positional arguments
+FN_entry = Entry(bd=6, width=15).grid(row=2, column=1, sticky="w")
 
-FN_entry = Entry(bd=6, width=25)                                        #~~~: Creates the entry box next to it
-FN_entry.grid(row=2, column=2, sticky="w")                              #~~~~: positional arguments; ".grid()" always indicates this.
+#module 2 - Last Name Entry
+LN = Label(text="Last Name: ", font =(defFont)).grid(row=3, column=0, sticky="w")
 
-#module 3 - Last Name Entry
-LN = Label(text="Last Name: ", font =(defFont))
-LN.grid(row=3, column=1, sticky="w")
+LN_entry = Entry(bd=6, width=15).grid(row=3, column=1, sticky="w")
 
-LN_entry = Entry(bd=6, width=25)
-LN_entry.grid(row=3, column=2, sticky="w")
+#module 3 - Starting Date Entry
+SD = Label(text="Reservation Date:" + Vs,font=(defFont)).grid(row=4, column=0, sticky="w")
 
-#module 4 - Starting Date Entry
-SD = Label(text="Starting Date:" + Vs,font=(defFont))
-SD.grid(row=4, column=1, sticky="w")
+TimeChoiceMenu = OptionMenu(root,variable,"start of day","end of day").grid(row=4,column=2,sticky="w")
 
-SD_calendar = DateEntry(root, width=12, background='darkblue', foreground='white', borderwidth=2)   #visual arguments
-SD_calendar.grid(row=4, column=2, sticky="w")
+SD_calendar = DateEntry(root, width=12, background='darkblue', foreground='white', borderwidth=2).grid(row=4, column=1, sticky="w") #borderwidth adds shadow to the box
 
-#module 5 - Ending Date Entry
-ED = Label(text="Ending Date:" + Vs, font=(defFont))
-ED.grid(row=5, column=1, sticky="w")
+#module 4 - Ending Date Entry
+DueBy = Label(text="Due by", font=(defFont)).grid(row=5, column=0, sticky="w")
 
-ED_calendar = DateEntry(root, width=12, background='darkblue', foreground='white', borderwidth=2)   #visual arguments
-ED_calendar.grid(row=5, column=2, sticky="w")
+variable.set("Select a time...")
+TimeChoiceMenu2 = OptionMenu(root,variable,"start of day","end of day").grid(row=5,column=2,sticky="w")
 
+ED_calendar = DateEntry(root, width=12, background='darkblue', foreground='white', borderwidth=2).grid(row=5, column=1, sticky="w")
 
 root.mainloop() #Calls the mainloop of TK, per the description
